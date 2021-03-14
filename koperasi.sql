@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 14, 2021 at 02:22 AM
+-- Generation Time: Mar 14, 2021 at 11:37 AM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.2
 
@@ -1079,7 +1079,7 @@ ALTER TABLE `kategoris`
 -- AUTO_INCREMENT for table `laba_rugis`
 --
 ALTER TABLE `laba_rugis`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `migrations`
