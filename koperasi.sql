@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 14, 2021 at 11:37 AM
+-- Generation Time: Mar 16, 2021 at 01:51 PM
 -- Server version: 5.7.24
 -- PHP Version: 8.0.2
 
@@ -120,7 +120,20 @@ INSERT INTO `jurnals` (`id`, `description`, `penamaan_kode_debet_id`, `penamaan_
 (11, NULL, 1010, 7009, 5810743, '2021-03-13 17:00:00', '2021-03-13 11:08:11'),
 (12, NULL, 7042, 3005, 1135300, '2021-03-13 17:00:00', '2021-03-13 11:37:18'),
 (13, NULL, 8013, 1010, 1320484, '2021-03-13 17:00:00', '2021-03-13 11:39:51'),
-(14, NULL, 8002, 1311, 2991128, '2021-03-06 17:00:00', '2021-03-13 11:40:59');
+(14, NULL, 8002, 1311, 2991128, '2021-03-06 17:00:00', '2021-03-13 11:40:59'),
+(30, NULL, 9000, 1504, 30539543, '2021-03-16 17:00:00', '2021-03-15 20:50:09'),
+(31, NULL, 9000, 2020, 6488311.68, '2021-03-15 17:00:00', '2021-03-15 20:50:43'),
+(32, NULL, 9000, 2021, 6488311.68, '2021-03-15 17:00:00', '2021-03-15 20:51:09'),
+(33, NULL, 9000, 2022, 7209235.2, '2021-03-15 17:00:00', '2021-03-15 20:51:35'),
+(34, NULL, 9000, 2023, 3604617.6, '2021-03-15 17:00:00', '2021-03-15 20:51:56'),
+(35, NULL, 9000, 2024, 3604617.6, '2021-03-08 17:00:00', '2021-03-15 20:52:30'),
+(36, NULL, 9000, 2025, 19421055.29, '2021-03-15 17:00:00', '2021-03-15 20:53:16'),
+(37, NULL, 9000, 3003, 19464935.04, '2021-03-15 17:00:00', '2021-03-15 20:53:46'),
+(38, NULL, 9000, 8011, 28050000, '2021-03-15 17:00:00', '2021-03-15 20:54:08'),
+(39, NULL, 9000, 3004, 5762512.63, '2021-03-15 17:00:00', '2021-03-15 20:54:30'),
+(40, NULL, 9000, 3008, 15000000, '2021-03-15 17:00:00', '2021-03-15 20:54:51'),
+(41, NULL, 9000, 3009, 20774985.04, '2021-03-15 17:00:00', '2021-03-15 20:55:16'),
+(42, NULL, 9000, 3010, 48755.28, '2021-03-15 17:00:00', '2021-03-15 20:55:38');
 
 -- --------------------------------------------------------
 
@@ -305,7 +318,107 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (33, '2021_03_12_094514_create_jurnal_kas_pemasukans_table', 1),
 (34, '2021_03_12_094555_create_jurnal_kas_pengeluarans_table', 1),
 (35, '2021_03_12_141931_edit_penamaan_kodes_table', 1),
-(37, '2021_03_13_125153_create_laba_rugis_table', 2);
+(37, '2021_03_13_125153_create_laba_rugis_table', 2),
+(40, '2021_03_15_010504_create_neraca_kategoris_table', 3),
+(41, '2021_03_15_015254_create_neracas_table', 3),
+(42, '2021_03_16_035953_edit_column_penamaan_kodes_table', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `neracas`
+--
+
+CREATE TABLE `neracas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `neraca_kategori_id` bigint(20) UNSIGNED NOT NULL,
+  `penamaan_kode_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `neracas`
+--
+
+INSERT INTO `neracas` (`id`, `neraca_kategori_id`, `penamaan_kode_id`, `created_at`, `updated_at`) VALUES
+(1, 10, 1000, '2021-03-15 08:56:42', '2021-03-15 08:56:42'),
+(2, 10, 1010, '2021-03-15 08:56:42', '2021-03-15 08:56:42'),
+(3, 20, 2000, '2021-03-15 08:57:50', '2021-03-15 07:21:01'),
+(6, 10, 1020, '2021-03-15 07:40:17', '2021-03-15 07:40:17'),
+(7, 10, 1021, '2021-03-15 07:40:33', '2021-03-15 07:40:33'),
+(8, 10, 1022, '2021-03-15 07:40:45', '2021-03-15 07:40:45'),
+(9, 10, 1023, '2021-03-15 07:41:22', '2021-03-15 07:41:22'),
+(10, 10, 1033, '2021-03-15 07:41:35', '2021-03-15 07:41:35'),
+(11, 10, 1034, '2021-03-15 07:41:46', '2021-03-15 07:41:46'),
+(12, 12, 1210, '2021-03-15 07:42:06', '2021-03-15 07:42:06'),
+(13, 12, 1211, '2021-03-15 07:42:21', '2021-03-15 07:42:21'),
+(14, 12, 1212, '2021-03-15 07:42:32', '2021-03-15 07:42:32'),
+(15, 12, 1213, '2021-03-15 07:42:42', '2021-03-15 07:42:42'),
+(16, 12, 1214, '2021-03-15 07:42:53', '2021-03-15 07:42:53'),
+(17, 13, 1302, '2021-03-15 07:44:56', '2021-03-15 07:44:56'),
+(18, 13, 1311, '2021-03-15 07:45:26', '2021-03-15 07:45:26'),
+(19, 15, 1501, '2021-03-15 07:45:34', '2021-03-15 07:45:34'),
+(20, 15, 1502, '2021-03-15 07:45:45', '2021-03-15 07:45:45'),
+(21, 15, 1503, '2021-03-15 07:45:53', '2021-03-15 07:45:53'),
+(22, 15, 1504, '2021-03-15 07:46:00', '2021-03-15 07:46:00'),
+(23, 15, 1505, '2021-03-15 07:48:11', '2021-03-15 07:48:11'),
+(24, 20, 2001, '2021-03-15 08:19:05', '2021-03-15 08:19:05'),
+(25, 20, 2002, '2021-03-15 08:19:31', '2021-03-15 08:19:31'),
+(26, 20, 2003, '2021-03-15 08:19:48', '2021-03-15 08:19:48'),
+(27, 20, 2004, '2021-03-15 08:20:01', '2021-03-15 08:20:01'),
+(28, 20, 2020, '2021-03-15 08:20:11', '2021-03-15 08:20:11'),
+(29, 20, 2021, '2021-03-15 08:20:21', '2021-03-15 08:20:21'),
+(30, 20, 2022, '2021-03-15 08:20:31', '2021-03-15 08:20:31'),
+(31, 20, 2023, '2021-03-15 08:20:40', '2021-03-15 08:20:40'),
+(32, 20, 2024, '2021-03-15 08:20:51', '2021-03-15 08:20:51'),
+(33, 20, 2025, '2021-03-15 08:21:13', '2021-03-15 08:21:13'),
+(34, 21, 2100, '2021-03-15 08:21:35', '2021-03-15 08:21:35'),
+(35, 30, 3000, '2021-03-15 08:22:10', '2021-03-15 08:22:10'),
+(36, 21, 2101, '2021-03-15 08:22:22', '2021-03-15 08:22:22'),
+(37, 21, 2102, '2021-03-15 08:22:33', '2021-03-15 08:22:33'),
+(38, 21, 2103, '2021-03-15 08:22:43', '2021-03-15 08:22:43'),
+(39, 21, 2104, '2021-03-15 08:22:52', '2021-03-15 08:22:52'),
+(40, 21, 2105, '2021-03-15 08:23:02', '2021-03-15 08:23:02'),
+(41, 21, 2106, '2021-03-15 08:23:39', '2021-03-15 08:23:39'),
+(42, 30, 3001, '2021-03-15 08:25:21', '2021-03-15 08:25:21'),
+(43, 30, 3002, '2021-03-15 08:25:47', '2021-03-15 08:25:47'),
+(44, 30, 3003, '2021-03-15 08:26:03', '2021-03-15 08:26:03'),
+(45, 30, 3004, '2021-03-15 08:26:14', '2021-03-15 08:26:14'),
+(46, 30, 3005, '2021-03-15 08:26:26', '2021-03-15 08:26:26'),
+(47, 30, 3008, '2021-03-15 08:26:36', '2021-03-15 08:26:36'),
+(48, 30, 3009, '2021-03-15 08:26:47', '2021-03-15 08:26:47'),
+(49, 30, 3010, '2021-03-15 08:27:01', '2021-03-15 08:27:01'),
+(50, 90, 9000, '2021-03-15 08:27:10', '2021-03-15 08:27:10'),
+(51, 90, 9001, '2021-03-15 08:27:23', '2021-03-15 08:27:23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `neraca_kategoris`
+--
+
+CREATE TABLE `neraca_kategoris` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kategori` enum('aktiva','pasiva') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `neraca_kategoris`
+--
+
+INSERT INTO `neraca_kategoris` (`id`, `nama`, `kategori`, `created_at`, `updated_at`) VALUES
+(10, 'aktiva lancar', 'aktiva', '2021-03-15 00:07:33', '2021-03-15 08:11:27'),
+(12, 'penyertaan', 'aktiva', '2021-03-15 00:07:33', '2021-03-15 08:11:38'),
+(13, 'aktiva tetap', 'aktiva', '2021-03-15 00:07:33', '2021-03-15 08:11:46'),
+(15, 'aktiva lain-lain', 'aktiva', '2021-03-15 00:07:33', '2021-03-15 08:11:54'),
+(20, 'hutang jangka pendek', 'pasiva', '2021-03-15 00:07:33', '2021-03-15 08:12:27'),
+(21, 'hutang jangka panjang', 'pasiva', '2021-03-15 00:07:33', '2021-03-15 08:12:44'),
+(30, 'modal sendiri', 'pasiva', '2021-03-15 00:07:33', '2021-03-15 08:12:50'),
+(90, 'shu', 'pasiva', '2021-03-15 00:07:33', '2021-03-15 08:12:56');
 
 -- --------------------------------------------------------
 
@@ -367,7 +480,7 @@ CREATE TABLE `pembayaran_tagihans` (
 CREATE TABLE `penamaan_kodes` (
   `kode` bigint(20) UNSIGNED NOT NULL,
   `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `saldo_awal` bigint(20) NOT NULL DEFAULT '0',
+  `saldo_awal` double NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -382,17 +495,17 @@ INSERT INTO `penamaan_kodes` (`kode`, `nama`, `saldo_awal`, `created_at`, `updat
 (1020, 'Piutang Barang Niaga', 0, '2021-03-13 05:57:18', '2021-03-13 05:57:18'),
 (1021, 'Piutang Barang Sekunder', 0, '2021-03-13 05:57:18', '2021-03-13 05:57:18'),
 (1022, 'Piutang Uang Usipa', 0, '2021-03-13 05:57:18', '2021-03-13 05:57:18'),
-(1023, 'Piutang Komando', 0, '2021-03-13 05:57:18', '2021-03-13 05:57:18'),
+(1023, 'Piutang Komando', 1000000, '2021-03-13 05:57:18', '2021-03-15 19:11:50'),
 (1033, 'Persediaan Brg Niaga ', 147019258, '2021-03-13 05:57:18', '2021-03-13 07:45:44'),
-(1034, 'Persediaan Brg Sekunder', 0, '2021-03-13 05:57:18', '2021-03-13 05:57:18'),
-(1210, 'Simpanan Pokok Puskopad', 0, '2021-03-13 05:57:18', '2021-03-13 05:57:18'),
+(1034, 'Persediaan Brg Sekunder', 80000, '2021-03-13 05:57:18', '2021-03-15 19:18:36'),
+(1210, 'Simpanan Pokok Puskopad', 100000000000, '2021-03-13 05:57:18', '2021-03-15 19:17:42'),
 (1211, 'Simpanan Wajib Tetap Puskopad', 0, '2021-03-13 05:57:18', '2021-03-13 05:57:18'),
 (1212, 'Simpanan Wajib Khusus Puskopad', 0, '2021-03-13 05:57:18', '2021-03-13 05:57:18'),
 (1213, 'Simpanan Wajib Jasa Puskopad', 0, '2021-03-13 05:57:18', '2021-03-13 05:57:18'),
-(1214, 'Simp jasa pembelian puskopad', 0, '2021-03-13 05:57:18', '2021-03-13 05:57:18'),
-(1302, 'Inventaris Kantor', 0, '2021-03-13 05:57:18', '2021-03-13 05:57:18'),
-(1311, 'Akum Pnystan Inventaris Kantor ', 0, '2021-03-13 05:57:18', '2021-03-13 05:57:18'),
-(1501, 'Piutang Anggota Tidak Lancar', 0, '2021-03-13 05:57:18', '2021-03-13 05:57:18'),
+(1214, 'Simp jasa pembelian puskopad', 500000, '2021-03-13 05:57:18', '2021-03-15 19:18:08'),
+(1302, 'Inventaris Kantor', 50000, '2021-03-13 05:57:18', '2021-03-15 19:19:59'),
+(1311, 'Akum Pnystan Inventaris Kantor ', 4000, '2021-03-13 05:57:18', '2021-03-15 19:20:18'),
+(1501, 'Piutang Anggota Tidak Lancar', 800000, '2021-03-13 05:57:18', '2021-03-15 19:36:31'),
 (1502, 'Piutang Anggota Pindah Satuan', 0, '2021-03-13 05:57:18', '2021-03-13 05:57:18'),
 (1503, 'Piutang Anggota Disersi', 0, '2021-03-13 05:57:18', '2021-03-13 05:57:18'),
 (1504, 'Mark Up Stock data fiktif', 0, '2021-03-13 05:57:18', '2021-03-13 05:57:18'),
@@ -417,7 +530,7 @@ INSERT INTO `penamaan_kodes` (`kode`, `nama`, `saldo_awal`, `created_at`, `updat
 (2104, 'Bantuan Modal Bupati', 0, '2021-03-13 05:57:19', '2021-03-13 05:57:19'),
 (2105, 'Bantuan Modal Walikota', 0, '2021-03-13 05:57:19', '2021-03-13 05:57:19'),
 (2106, 'Bantuan Modal Kabidkam SG 97', 0, '2021-03-13 05:57:19', '2021-03-13 05:57:19'),
-(3000, 'Simpanan Pokok Anggota', 0, '2021-03-13 05:57:19', '2021-03-13 05:57:19'),
+(3000, 'Simpanan Pokok Anggota', 1000000, '2021-03-13 05:57:19', '2021-03-15 20:30:14'),
 (3001, 'Simpanan Wajib Tetap Anggota', 0, '2021-03-13 05:57:19', '2021-03-13 05:57:19'),
 (3002, 'Simpanan Wajib Khusus Anggota', 0, '2021-03-13 05:57:19', '2021-03-13 05:57:19'),
 (3003, 'Simpanan Wajib Jasa Anggota', 0, '2021-03-13 05:57:19', '2021-03-13 05:57:19'),
@@ -467,7 +580,7 @@ INSERT INTO `penamaan_kodes` (`kode`, `nama`, `saldo_awal`, `created_at`, `updat
 (8011, 'Cadangan Bingkisan Lebaran', 0, '2021-03-13 05:57:19', '2021-03-13 05:57:19'),
 (8012, 'Biaya ATK', 0, '2021-03-13 05:57:19', '2021-03-13 05:57:19'),
 (8013, 'Biaya Adm Bank', 0, '2021-03-13 05:57:19', '2021-03-13 05:57:19'),
-(9000, 'SHU Per 31 Desember 2019', 0, '2021-03-13 05:57:19', '2021-03-13 05:57:19'),
+(9000, 'SHU Per 31 Desember 2019', 166456880.04, '2021-03-13 05:57:19', '2021-03-15 21:01:03'),
 (9001, 'SHU Per 31 Desember 2020', 0, '2021-03-13 05:57:19', '2021-03-13 05:57:19');
 
 -- --------------------------------------------------------
@@ -900,6 +1013,20 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `neracas`
+--
+ALTER TABLE `neracas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `neracas_neraca_kategori_id_foreign` (`neraca_kategori_id`),
+  ADD KEY `neracas_penamaan_kode_id_foreign` (`penamaan_kode_id`);
+
+--
+-- Indexes for table `neraca_kategoris`
+--
+ALTER TABLE `neraca_kategoris`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -1055,7 +1182,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `jurnals`
 --
 ALTER TABLE `jurnals`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `jurnal_kas_pemasukans`
@@ -1079,13 +1206,25 @@ ALTER TABLE `kategoris`
 -- AUTO_INCREMENT for table `laba_rugis`
 --
 ALTER TABLE `laba_rugis`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
+-- AUTO_INCREMENT for table `neracas`
+--
+ALTER TABLE `neracas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
+--
+-- AUTO_INCREMENT for table `neraca_kategoris`
+--
+ALTER TABLE `neraca_kategoris`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
 -- AUTO_INCREMENT for table `pemasukans`
@@ -1222,6 +1361,13 @@ ALTER TABLE `jurnal_kas_pengeluarans`
 --
 ALTER TABLE `laba_rugis`
   ADD CONSTRAINT `laba_rugis_penamaan_kode_id_foreign` FOREIGN KEY (`penamaan_kode_id`) REFERENCES `penamaan_kodes` (`kode`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `neracas`
+--
+ALTER TABLE `neracas`
+  ADD CONSTRAINT `neracas_neraca_kategori_id_foreign` FOREIGN KEY (`neraca_kategori_id`) REFERENCES `neraca_kategoris` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `neracas_penamaan_kode_id_foreign` FOREIGN KEY (`penamaan_kode_id`) REFERENCES `penamaan_kodes` (`kode`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pembayaran_tagihans`
